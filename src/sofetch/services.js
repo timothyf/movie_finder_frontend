@@ -15,19 +15,20 @@ export const handleNewUser = (username, password) => {
          password: password,
       })
    }).then(res => res.json())
-} 
+}
 
 export const getMovies = () => {
+  console.log("Get all movies");
    return fetch(`${GB_BASE}/movies/all/0/56`, {
       method: "GET"
    }).then(res => res.json())
-} 
+}
 
 export const getMoreMovies = (start) => {
    return fetch(`${GB_BASE}/movies/all/${start}/56`, {
       method: "GET"
    }).then(res => res.json())
-} 
+}
 
 export const getFilteredMovies = (source) => {
    return fetch(`${GB_BASE}/movies/all/0/56/${source}`, {
@@ -51,7 +52,7 @@ export const getMovieInfo = (movieId) => {
    return fetch(`${GB_BASE}/movie/${movieId}`, {
       method: "GET"
    }).then(res => res.json())
-} 
+}
 
 export const getMovieTrailer = (movieId) => {
    return fetch(`${MDB_BASE}/${movieId}/videos?api_key=${MDB_KEY}`, {
@@ -79,7 +80,7 @@ export const getAuthToken = (loginInfo) => {
       },
       body: JSON.stringify(loginInfo)
    }).then(res => res.json())
-} 
+}
 
 export const getFavorites = (user_id) => {
    return fetch(`${LOCAL}/users/${user_id}`, {
@@ -106,7 +107,7 @@ export const handleNewFavorite = (favorite_params) => {
          user_id: favorite_params.user_id
       })
    }).then(res => res.json())
-} 
+}
 
 export const deleteFavorite = (user_id, movie_id) => {
    return fetch(`${LOCAL}/removeFavorites`, {
@@ -119,5 +120,5 @@ export const deleteFavorite = (user_id, movie_id) => {
          user_id: user_id,
          movie_id: movie_id
       })
-   })  
-} 
+   })
+}
